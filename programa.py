@@ -33,3 +33,5 @@ def menu():
                 case _: print("❌ Opción inválida.")
         except ValueError:
             print("❌ Error: debe ingresar un número.")
+
+menu()
