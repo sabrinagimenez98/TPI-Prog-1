@@ -6,7 +6,7 @@ def ordenar_paises():
     opc = input("Seleccione orden: ").strip()
     orden = input("Ascendente (a) o descendente (d): ").strip().lower()
     reverse = orden == "d"
-    with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
+    with open(RUTA_ARCHIVO, "r", encoding="utf-8-") as archivo:
         paises = list(csv.DictReader(archivo))
     if opc == "1":
         paises.sort(key=lambda x: x["nombre"], reverse=reverse)
