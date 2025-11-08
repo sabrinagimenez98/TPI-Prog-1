@@ -1,12 +1,13 @@
-#from funciones import mostrar_paises, buscar_pais, agregar_pais, eliminar_pais
+
 from funciones import mostrar_paises, buscar_pais, agregar_pais,eliminar_pais
 from ordenamientos import ordenar_paises
 from estadisticas import mostrar_estadisticas
 from filtros import filtrar_paises
+
 def menu():
     while True:
         print("=" * 30)
-        print("📋 MENÚ PRINCIPAL")
+        print("\nMENÚ PRINCIPAL")
         print("1. Mostrar países")
         print("2. Buscar país")
         print("3. Filtrar países")
@@ -28,10 +29,10 @@ def menu():
                 case 6: agregar_pais()
                 case 7: eliminar_pais()
                 case 8:
-                    print("👋 ¡Hasta luego!")
+                    print("¡Hasta luego!")
                     break
-                case _: print("❌ Opción inválida.")
+                case _: print("Opción inválida.")
         except ValueError:
-            print("❌ Error: debe ingresar un número.")
+            print("Error: debe ingresar un número.")
 
 menu()
