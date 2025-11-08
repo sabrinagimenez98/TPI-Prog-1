@@ -2,6 +2,10 @@ from funciones import RUTA_ARCHIVO
 import csv
 from collections import Counter
 
+#------------------------------------------
+#ESTADISTICAS
+#------------------------------------------
+
 def mostrar_estadisticas():
     with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
         paises = list(csv.DictReader(archivo))

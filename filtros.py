@@ -2,6 +2,10 @@ from funciones import RUTA_ARCHIVO
 import csv
 from utils import quitar_tildes
 
+#------------------------------------------
+#FILTROS
+#------------------------------------------
+
 def filtrar_paises():
     print("1. Por continente\n2. Por población\n3. Por superficie")
     opc = input("Seleccione filtro: ").strip()

@@ -4,6 +4,12 @@ from ordenamientos import ordenar_paises
 from estadisticas import mostrar_estadisticas
 from filtros import filtrar_paises
 
+#--------------------------
+# RUTA ARCHIVO
+#--------------------------
+
+RUTA_ARCHIVO = "ARCHIVO_PAISES\\paises.csv"
+
 def menu():
     while True:
         print("=" * 30)
@@ -34,5 +40,9 @@ def menu():
                 case _: print("Opción inválida.")
         except ValueError:
             print("Error: debe ingresar un número.")
+
+#--------------------------
+#PRINCIPAL
+#--------------------------
 
 menu()

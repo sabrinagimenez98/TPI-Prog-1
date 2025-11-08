@@ -3,23 +3,37 @@ from utils import quitar_tildes
 
 RUTA_ARCHIVO = "ARCHIVO_PAISES/paises.csv"
 
+#--------------------------
+#FUNCIONES PROGRAMA
+#------------------------- 
+
+#Funcion para crear archivo si no existe
 def inicializar_archivo():
     os.makedirs(os.path.dirname(RUTA_ARCHIVO), exist_ok=True)
     if not os.path.exists(RUTA_ARCHIVO):
         with open(RUTA_ARCHIVO, "w", encoding="utf-8", newline="") as archivo:
+            #Crea una lista de diccionarios y toma la primer linea/fila como encabezados como (key), y los demas como (value)
             escritor = csv.DictWriter(archivo, fieldnames=["nombre", "poblacion", "superficie", "continente"])
+            #escribe los encabezados en el archivo
             escritor.writeheader()
+
+#--------------------------
+#FUNCIONES MENU
+#--------------------------
 
 def mostrar_paises():
     try:
         with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
+            #lee el contenido del archivo como lista de diccionarios
             contenido = list(csv.DictReader(archivo))
             if not contenido:
                 print("No hay países registrados.")
                 return
+            # Encabezado con ancho fijo
             print("-" * 70)
             print(f"{'Nombre':<20} {'Población':<17} {'Superficie':<10} {'Continente':>15}")
             print("-" * 70)
+            #Paises
             for fila in contenido:
                 try:
                     nombre =fila['nombre']
@@ -28,7 +42,8 @@ def mostrar_paises():
                     continente = quitar_tildes(fila['continente'])
                     print(f"{nombre:<20} | {poblacion:>12} | {superficie:>14} | {continente:>15} |")
                 except ValueError:
-                    continue
+                     #elimina paises con errores de formato
+                    print(f"- País {fila.get('nombre')}' eliminado por error de formato.")
     except FileNotFoundError:
         inicializar_archivo()
 
@@ -37,12 +52,15 @@ def buscar_pais():
     if not pais or pais.isdigit():
         print("Entrada inválida.")
         return
+    #Quito las tildes al pais ingresado para la comparacion.
     pais = quitar_tildes(pais.lower())
     try:
         with open(RUTA_ARCHIVO, "r", encoding="utf-8") as archivo:
-            for fila in csv.DictReader(archivo):
+            lector=csv.DictReader(archivo)
+            for fila in lector:
+                 #Comparacion
                 if quitar_tildes(fila["nombre"].lower()) == pais:
-                    print(f"✅ {fila['nombre']} | Población: {fila['poblacion']} | Superficie: {fila['superficie']} | Continente: {fila['continente']}")
+                    print(f"{fila['nombre']} | Población: {fila['poblacion']} | Superficie: {fila['superficie']} | Continente: {fila['continente']}")
                     return
         print("País no encontrado.")
     except FileNotFoundError:

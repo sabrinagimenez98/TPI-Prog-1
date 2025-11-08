@@ -1,6 +1,10 @@
 from funciones import RUTA_ARCHIVO
 import csv
 
+#--------------------------
+#ORDENAMIENTOS
+#-------------------------
+
 def ordenar_paises():
     print("1. Por nombre\n2. Por población\n3. Por superficie")
     opc = input("Seleccione orden: ").strip()
