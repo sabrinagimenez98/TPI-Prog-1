@@ -14,7 +14,7 @@ def menu():
     while True:
         # Imprime el menú principal
         print("\n" + "=" * 40)
-        print("GESTOR MUNDIAL DE PAÍSES - MENÚ PRINCIPAL")
+        print("MENÚ PRINCIPAL")
         print("=" * 40)
         
         print("| 1. Mostrar todos los países")

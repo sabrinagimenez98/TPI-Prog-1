@@ -226,7 +226,7 @@ def agregar_pais():
         return
 
     # 4. Entrada y validación de superficie (Log de error y try/except explícito para float)
-    nuevo_superficie_str = input("➡️ Ingrese la superficie del país (decimal, ej: 123.45): ").strip()
+    nuevo_superficie_str = input("Ingrese la superficie del país (decimal, ej: 123.45): ").strip()
     try:
         # Reemplazo de coma por punto si se usa en la entrada (común en español)
         nuevo_superficie_str = nuevo_superficie_str.replace(',', '.')
@@ -240,7 +240,7 @@ def agregar_pais():
         return
 
     # 5. Entrada y validación de continente (Log de error)
-    nuevo_continente = input("➡️ Ingrese el continente del país: ").strip().lower()
+    nuevo_continente = input("Ingrese el continente del país: ").strip().lower()
     if nuevo_continente not in continentes_validos:
         print(f"Error: Continente inválido. Los válidos son: {', '.join(continentes_validos)}. Inténtelo de nuevo.")
         return
